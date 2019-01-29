@@ -4,16 +4,20 @@ class HeirloomDoctools < Formula
 	url "https://github.com/n-t-roff/heirloom-doctools/releases/download/160308/heirloom-doctools-160308.tar.bz2"
 	sha256 "e4aeae0e5303537755c04226c06d98a46aa35913d1a179708fbc368f93731a26"
 
-	conflicts_with "groff" :because => "they both install troff and nroff binaries"
+	conflicts_with "groff", :because => "both install preprocessors and troff/nroff binaries"
 
-	patch :DATA
+	patch :DATA # TODO: Remove patch once @n-t-roff cuts a new release
 
 	def install
 		args = "PREFIX=#{prefix}", "BINDIR=#{bin}", "LIBDIR=#{lib}", "MANDIR=#{man}"
-
 		system "./configure"
 		system "make", *args
 		system "make", "install", *args
+		
+		# TODO: We need a way (and an option?) to change/track where stuff is installed
+		# /usr/local/ucb
+		# /usr/local/ucblib/
+		# /usr/local/share/heirloom-doctools
 	end
 
 	test do
