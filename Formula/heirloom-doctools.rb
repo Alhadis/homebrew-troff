@@ -1,27 +1,31 @@
 class HeirloomDoctools < Formula
-	desc "Portable and enhanced versions OpenSolaris's troff(1)/nroff(1)"
+	desc "Portable, heavily-enhanced versions of troff and related tools"
 	homepage "https://n-t-roff.github.io/heirloom/doctools.html"
 	url "https://github.com/n-t-roff/heirloom-doctools/releases/download/160308/heirloom-doctools-160308.tar.bz2"
 	sha256 "e4aeae0e5303537755c04226c06d98a46aa35913d1a179708fbc368f93731a26"
+	head "https://github.com/n-t-roff/heirloom-doctools.git"
 
-	conflicts_with "groff", :because => "both install preprocessors and troff/nroff binaries"
+	conflicts_with "groff",     :because => "both install eqn, indxbib, lookbib, neqn, nroff, pic, refer, soelim, tbl, and troff binaries"
+	conflicts_with "grap",      :because => "both install a `grap` binary"
+	conflicts_with "coreutils", :because => "both install a `ptx` binary"
 
-	patch :DATA # TODO: Remove patch once @n-t-roff cuts a new release
+	# TODO: Remove this once a new release is cut
+	patch :DATA unless build.head?
 
 	def install
 		args = "PREFIX=#{prefix}", "BINDIR=#{bin}", "LIBDIR=#{lib}", "MANDIR=#{man}"
 		system "./configure"
 		system "make", *args
 		system "make", "install", *args
-		
-		# TODO: We need a way (and an option?) to change/track where stuff is installed
-		# /usr/local/ucb
-		# /usr/local/ucblib/
-		# /usr/local/share/heirloom-doctools
+		system "make", "test", *args
 	end
 
 	test do
-		system "#{bin}/troff", "-V"
+		# Assert both nroff(1) and troff(1) report their version correctly
+		for exec in ["troff", "nroff"]
+			output = shell_output("#{bin}/#{exec}", "-V")
+			assert_match "Heirloom doctools #{exec}", output
+		end
 	end
 end
 
