@@ -6,6 +6,12 @@ class Libpipeline < Formula
 
 	depends_on "pkg-config"
 
+	head do
+		url "git://git.savannah.nongnu.org/libpipeline.git"
+		depends_on "autoconf" => :build
+		depends_on "automake" => :build
+	end
+
 	def install
 		system "./configure", "--prefix=#{prefix}"
 		system "make"
