@@ -17,11 +17,13 @@ To grab hold of these formulae, run:
 
 Then install any of them at your leisure:
 
-	brew install man-db
+	brew install alhadis/troff/man-db
 	brew install heirloom-doctools
 
 **Note:** Some of these formulae are already available from Homebrew's core, but [require configuration](https://github.com/Homebrew/homebrew-core/issues/36981#issuecomment-464290531) before use.
 This tap replaces them with DWIM equivalents, ones which require no `PATH`-fiddling after installation.
+A complication of this is that `alhadis/troff/` must prefix the formula's name when installed.
+Others can be installed normally (e.g., `heirloom-doctools` as illustrated above).
 
 
 Available formulae
