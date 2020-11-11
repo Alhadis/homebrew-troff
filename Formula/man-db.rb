@@ -9,6 +9,13 @@ class ManDb < Formula
 	depends_on "libpipeline"
 	depends_on "gettext"
 	depends_on "zstd" => :optional
+	uses_from_macos "groff"
+	uses_from_macos "zlib"
+
+	livecheck do
+		url "https://download.savannah.gnu.org/releases/man-db/"
+		regex /\bhref\s*=.*?man[-_]db[._-]v?(\d+(?:\.\d+)+)\.tar\b/i
+	end
 
 	def install
 		args = %W[

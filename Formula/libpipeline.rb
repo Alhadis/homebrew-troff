@@ -7,6 +7,11 @@ class Libpipeline < Formula
 
 	depends_on "pkg-config"
 
+	livecheck do
+		url "https://download.savannah.nongnu.org/releases/libpipeline/"
+		regex /\bhref\s*=.*?libpipeline[-_.](\d+(?:\.\d+)+)\.tar\b/i
+	end
+
 	head do
 		url "git://git.savannah.nongnu.org/libpipeline.git"
 		depends_on "autoconf" => :build

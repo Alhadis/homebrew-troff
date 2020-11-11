@@ -5,6 +5,10 @@ class Dformat < Formula
 	sha256 "a5f429d8054dc72edc3146955ede37e300182d1df289fd7e46e4661115233109"
 	version "v1.0.0"
 
+	livecheck do
+		skip "Not actively developed or maintained"
+	end
+
 	depends_on "gawk"
 
 	def install
