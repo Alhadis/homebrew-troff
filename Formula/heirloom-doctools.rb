@@ -5,27 +5,58 @@ class HeirloomDoctools < Formula
 	sha256 "e4aeae0e5303537755c04226c06d98a46aa35913d1a179708fbc368f93731a26"
 	head "https://github.com/n-t-roff/heirloom-doctools.git"
 
-	conflicts_with "groff",     :because => "both install eqn, indxbib, lookbib, neqn, nroff, pic, refer, soelim, tbl, and troff binaries"
-	conflicts_with "grap",      :because => "both install a `grap` binary"
-	conflicts_with "coreutils", :because => "both install a `ptx` binary"
-
 	# TODO: Remove this once a new release is cut
 	patch :DATA unless build.head?
 
 	def install
-		args = "PREFIX=#{prefix}", "BINDIR=#{bin}", "LIBDIR=#{lib}", "MANDIR=#{man}"
+		args = %W[
+			PREFIX=#{prefix}
+			BINDIR=#{libexec}/bin
+			MANDIR=#{libexec}/man
+			LIBDIR=#{pkgshare}
+			PUBDIR=#{pkgshare}/pub
+			MACDIR=#{pkgshare}/tmac
+			FNTDIR=#{pkgshare}/font
+			TABDIR=#{pkgshare}/nterm
+			HYPDIR=#{pkgshare}/hyphen
+		]
+		inreplace "makefile", %r{^\ttroff/troff\.d/dhtml \\$\K}ms, "\n\ttroff/troff.d/devaps \\"
 		system "./configure"
 		system "make", *args
 		system "make", "install", *args
-		system "make", "test", *args
+		(libexec/"bin").children.each do |cmd|
+			bin.install_symlink cmd => "heirloom-#{File.basename cmd}"
+		end
+		(libexec/"man").glob("man*/*").each do |page|
+			dir = File.basename(File.dirname page)
+			(man/dir).install_symlink page => "heirloom-#{File.basename page}"
+		end
+		
+		doc.install Dir["doc/*"]
+		mkdir_p doc/"examples", verbose: true
+		(doc/"examples").install Dir["stuff/{footnotes.tr,demo/*}"]
+		(share/"xml").install buildpath/"stuff/odt2tr.xsl"
 	end
 
 	test do
 		# Assert both nroff(1) and troff(1) report their version correctly
-		for exec in ["troff", "nroff"]
+		for exec in ["heirloom-troff", "heirloom-nroff"]
 			output = shell_output("#{bin}/#{exec}", "-V")
 			assert_match "Heirloom doctools #{exec}", output
 		end
+	end
+
+	def caveats
+		<<~EOF
+			Commands and man pages have been installed with an `heirloom-` prefix.
+			If you want the unprefixed versions, add the following to your shell's
+			startup file:
+			
+				export PATH="#{opt_prefix}/libexec/bin:$PATH"
+				export MANPATH="#{opt_prefix}/libexec/man:$MANPATH"
+			
+			Additional documentation and examples can be found in #{pkgshare}.
+		EOF
 	end
 end
 
