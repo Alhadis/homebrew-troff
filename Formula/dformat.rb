@@ -9,13 +9,12 @@ class Dformat < Formula
 		skip "Not actively developed or maintained"
 	end
 
-	depends_on "gawk"
-
 	def install
-		mv "src/dformat.awk", "src/dformat"
-		inreplace "src/dformat", /\A/, "#!/bin/sh\n"
-		chmod 0555, "src/dformat"
-		bin.install "src/dformat"
+		inreplace "src/dformat.awk" do |s|
+			s.sub! /^gawk /m, "exec awk "
+			s.sub! /\A/, "#!/bin/sh\n"
+		end
+		bin.install "src/dformat.awk" => "dformat"
 	end
 
 	test do
