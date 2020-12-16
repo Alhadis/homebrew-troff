@@ -4,6 +4,7 @@ class Libpipeline < Formula
 	url "https://download.savannah.nongnu.org/releases/libpipeline/libpipeline-1.5.3.tar.gz"
 	mirror "https://download-mirror.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.3.tar.gz"
 	sha256 "5dbf08faf50fad853754293e57fd4e6c69bb8e486f176596d682c67e02a0adb0"
+	license "GPL-3.0-only"
 
 	depends_on "pkg-config"
 

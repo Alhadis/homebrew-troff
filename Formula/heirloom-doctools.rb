@@ -4,6 +4,15 @@ class HeirloomDoctools < Formula
 	url "https://github.com/n-t-roff/heirloom-doctools/releases/download/191015/heirloom-doctools-191015.tar.bz2"
 	sha256 "a169912358874ecb396c6ce02d08144db00f0e65b9de528216d5a9addea8a34a"
 	head "https://github.com/n-t-roff/heirloom-doctools.git"
+	license all_of: %W[
+		BSD-4-Clause
+		Caldera
+		CDDL-1.0
+		CDDL-1.1
+		ISC
+		LGPL-2.1-only
+		LPPL-1.0
+	]
 
 	def install
 		args = %W[

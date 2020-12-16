@@ -3,6 +3,7 @@ class Dformat < Formula
 	homepage "https://github.com/sathlan/dformat"
 	url "https://github.com/sathlan/dformat/archive/e74ea9a9bf2bdb151be35791d7c58aa842ef284b.zip"
 	sha256 "a5f429d8054dc72edc3146955ede37e300182d1df289fd7e46e4661115233109"
+	license "Caldera"
 	version "v1.0.0"
 
 	livecheck do
