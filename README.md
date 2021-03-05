@@ -32,7 +32,5 @@ Available formulae
 	Awk-based preprocessor for data formats, taken from [CSTR #142](https://www.troff.org/papers.html).
 *	[`man-db`](https://nongnu.org/man-db/):
 	The implementation of `man(1)` widely used on Linux.
-*	[`libpipeline`](http://libpipeline.nongnu.org/):
-	C library for manipulating pipelines of subprocesses.
 *	[`heirloom-doctools`](http://n-t-roff.github.io/heirloom/doctools.html):
 	Modernised `troff` geared toward high-quality typesetting.
