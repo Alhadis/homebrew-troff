@@ -28,6 +28,8 @@ Others can be installed normally (e.g., `heirloom-doctools` as illustrated above
 
 Available formulae
 ------------------
+*	[`chem`](http://www.netlib.org/typesetting):
+	Historic version of `chem(1)`, a preprocessor for chemical diagrams.
 *	[`dformat`](https://github.com/sathlan/dformat):
 	Awk-based preprocessor for data formats, taken from [CSTR #142](https://www.troff.org/papers.html).
 *	[`man-db`](https://nongnu.org/man-db/):
