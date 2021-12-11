@@ -32,6 +32,8 @@ Available formulae
 	Historic version of `chem(1)`, a preprocessor for chemical diagrams.
 *	[`dformat`](https://github.com/sathlan/dformat):
 	Awk-based preprocessor for data formats, taken from [CSTR #142](https://www.troff.org/papers.html).
+*	[`dpic`](https://gitlab.com/aplevich/dpic):
+	Reimplementation of `gpic(1)` targeting LaTeX and web-based formats.
 *	[`man-db`](https://nongnu.org/man-db/):
 	The implementation of `man(1)` widely used on Linux.
 *	[`heirloom-doctools`](http://n-t-roff.github.io/heirloom/doctools.html):
