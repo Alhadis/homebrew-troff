@@ -36,3 +36,5 @@ Available formulae
 	The implementation of `man(1)` widely used on Linux.
 *	[`heirloom-doctools`](http://n-t-roff.github.io/heirloom/doctools.html):
 	Modernised `troff` geared toward high-quality typesetting.
+*	[`pikchr`](https://pikchr.org/home):
+	Web-friendly PIC interpreter optimised for SVG output.
