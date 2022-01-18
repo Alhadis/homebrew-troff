@@ -42,3 +42,5 @@ Available formulae
 	Modernised `troff` geared toward high-quality typesetting.
 *	[`pikchr`](https://pikchr.org/home):
 	Web-friendly PIC interpreter optimised for SVG output.
+*	[`teqn`](https://github.com/mahdiElliot/teqn):
+	Convert TeX equations to [Neateqn](https://github.com/aligrudi/neateqn) preprocessor markup.
