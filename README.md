@@ -36,6 +36,8 @@ Available formulae
 	Reimplementation of `gpic(1)` targeting LaTeX and web-based formats.
 *	[`man-db`](https://nongnu.org/man-db/):
 	The implementation of `man(1)` widely used on Linux.
+*	[`neatroff`](http://litcave.rudi.ir/):
+	Modern reimplementation of Troff with Unicode and bidirectional text support.
 *	[`heirloom-doctools`](http://n-t-roff.github.io/heirloom/doctools.html):
 	Modernised `troff` geared toward high-quality typesetting.
 *	[`pikchr`](https://pikchr.org/home):
