@@ -35,7 +35,7 @@ class Chem < Formula
 		<<~EOF
 			To avoid conflicts with newer implementations, this version of chem(1) has
 			been installed as "ochem" (short for "old chem"). An unprefixed version of
-			the script can be found at \x1B[4m#{opt_prefix}/libexec/chem\x1B[24m.
+			the script can be found at #{Formatter.url opt_prefix/"libexec/chem"}.
 		EOF
 	end
 	

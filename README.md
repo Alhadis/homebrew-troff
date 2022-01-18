@@ -34,12 +34,12 @@ Available formulae
 	Awk-based preprocessor for data formats, taken from [CSTR #142](https://www.troff.org/papers.html).
 *	[`dpic`](https://gitlab.com/aplevich/dpic):
 	Reimplementation of `gpic(1)` targeting LaTeX and web-based formats.
+*	[`heirloom-doctools`](http://n-t-roff.github.io/heirloom/doctools.html):
+	Modernised `troff` geared toward high-quality typesetting.
 *	[`man-db`](https://nongnu.org/man-db/):
 	The implementation of `man(1)` widely used on Linux.
 *	[`neatroff`](http://litcave.rudi.ir/):
 	Modern reimplementation of Troff with Unicode and bidirectional text support.
-*	[`heirloom-doctools`](http://n-t-roff.github.io/heirloom/doctools.html):
-	Modernised `troff` geared toward high-quality typesetting.
 *	[`pikchr`](https://pikchr.org/home):
 	Web-friendly PIC interpreter optimised for SVG output.
 *	[`teqn`](https://github.com/mahdiElliot/teqn):
