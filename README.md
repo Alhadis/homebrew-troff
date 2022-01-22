@@ -28,6 +28,8 @@ Others can be installed normally (e.g., `heirloom-doctools` as illustrated above
 
 Available formulae
 ------------------
+*	[`awf`](http://doc.cat-v.org/henry_spencer/awf/):
+	The Amazingly Workable Formatter, a partial `nroff(1)` clone written in Awk.
 *	[`chem`](http://www.netlib.org/typesetting):
 	Historic version of `chem(1)`, a preprocessor for chemical diagrams.
 *	[`dformat`](https://github.com/sathlan/dformat):
