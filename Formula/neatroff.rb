@@ -114,32 +114,32 @@ class Neatroff < Formula
 	end
 	
 	stable do
-		url "https://github.com/aligrudi/neatroff_make.git", revision: "70a4a17b46e7996e1d2e513474a1838e2ed40e4a"
-		version "2022-04-16"
+		url "https://github.com/aligrudi/neatroff_make.git", revision: "498e716802563c0be5283d8ac0ed40efed7602fc"
+		version "2022-05-28"
 		
 		resource "neatroff" do
-			url "https://github.com/aligrudi/neatroff.git", revision: "ab1be40cf7c539cb62f7bfb6537f8e1d96460ee5"
-			version "2021-10-05"
+			url "https://github.com/aligrudi/neatroff.git", revision: "0d691c38d6f30f1acaf8c2d2c710ad0648208c4b"
+			version "2022-05-27"
 		end
 		
 		resource "neatpost" do
-			url "https://github.com/aligrudi/neatpost.git", revision: "5c912d084931b4aa91103718bc8d59c2c982d9ad"
-			version "2021-06-25"
+			url "https://github.com/aligrudi/neatpost.git", revision: "a79e7c463a998eb249b2c6d0d010e7540a329ce2"
+			version "2022-05-27"
 		end
 
 		resource "neateqn" do
-			url "https://github.com/aligrudi/neateqn.git", revision: "e235f3de0b28dfafda588c3ae74f4d480d0e222d"
-			version "2021-12-17"
+			url "https://github.com/aligrudi/neateqn.git", revision: "564d3392729f91b63f35d6da335cf8c7bc42700f"
+			version "2022-05-27"
 		end
 
 		resource "neatmkfn" do
-			url "https://github.com/aligrudi/neatmkfn.git", revision: "dd686dbd3509c79eecd46458dd3a5f367ceee367"
-			version "2021-06-18"
+			url "https://github.com/aligrudi/neatmkfn.git", revision: "799342c46e5f2928d77701e1b2f787ed729a1cce"
+			version "2022-05-27"
 		end
 
 		resource "neatrefer" do
-			url "https://github.com/aligrudi/neatrefer.git", revision: "b11d03d051f79791d03d6d3c1c9f492c1fa1f512"
-			version "2017-11-27"
+			url "https://github.com/aligrudi/neatrefer.git", revision: "0cc4ee1f7206ea0b9218d2ce798ea50344b537f4"
+			version "2022-05-27"
 		end
 
 		resource "troff" do
@@ -160,22 +160,22 @@ class Neatroff < Formula
 	
 	test do
 		# Help output
-		output = shell_output("#{bin}/neatroff --help").strip
+		output = shell_output("#{bin}/neatroff --help 2>&1", 1).strip
 		assert_match "Usage: neatroff [options] input", output
 		assert_match fdir = /\R[ \t]+-Fdir[ \t]+set font directory \((.+)\)$/, output
 		assert_match mdir = /\R[ \t]+-Mdir[ \t]+set macro directory \((.+)\)$/, output
 		[fdir, mdir].each { |dir| assert_path_exists output.match(dir).captures.last }
 		
-		output = shell_output("#{bin}/neatpost --help").strip
+		output = shell_output("#{bin}/neatpost --help 2>&1", 1).strip
 		assert_match "Usage: neatpost [options] <input >output", output
 		assert_match fdir = /\R[ \t]+-F[ \t]*dir[ \t]+set font directory \((.+)\)$/, output
 		assert_path_exists output.match(fdir).captures.last
 		
-		output = shell_output("#{bin}/neateqn --help || :").strip
+		output = shell_output("#{bin}/neateqn --help 2>&1", 1).strip
 		assert_match "Usage: neateqn [options] <input >output", output
 		assert_match /\R[ \t]+-c[ \t]*chars[ \t]+characters that chop equations\Z/, output
 		
-		output = shell_output("#{bin}/neatrefer --help || :").strip
+		output = shell_output("#{bin}/neatrefer --help 2>&1", 1).strip
 		assert_match "Usage neatrefer [options] <input >output", output
 		assert_match "\tmerge multiple references in a single .[/.] block", output
 		assert_match "\tinitials for authors' first and middle names", output
