@@ -114,8 +114,8 @@ class Neatroff < Formula
 	end
 	
 	stable do
-		url "https://github.com/aligrudi/neatroff_make.git", revision: "498e716802563c0be5283d8ac0ed40efed7602fc"
-		version "2022-05-28"
+		url "https://github.com/aligrudi/neatroff_make.git", revision: "1da8ac53ab018fbfaddc9800236a5370475947b5"
+		version "2022-06-04"
 		
 		resource "neatroff" do
 			url "https://github.com/aligrudi/neatroff.git", revision: "0d691c38d6f30f1acaf8c2d2c710ad0648208c4b"
@@ -143,9 +143,8 @@ class Neatroff < Formula
 		end
 
 		resource "troff" do
-			# FIXME: Convince author to migrate git://repo.or.cz/troff.git fork to GitHub
-			url "https://github.com/Cutlery-Drawer/neatroff_mods.git", branch: "neat", revision: "93e3f0575c6f3055c4da35c4dc514ae57db84cf9"
-			version "2020-10-03"
+			url "https://github.com/aligrudi/troffp9.git", revision: "a0e83966bc6e85197151c51b2c99f2950cce8446"
+			version "2022-06-04"
 		end
 	end
 	
