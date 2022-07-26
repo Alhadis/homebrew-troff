@@ -115,11 +115,11 @@ class Neatroff < Formula
 	
 	stable do
 		url "https://github.com/aligrudi/neatroff_make.git", revision: "c62c55333268ead50b0b992514c9a6e69802023a"
-		version "2022-07-21"
+		version "2022-07-26"
 		
 		resource "neatroff" do
-			url "https://github.com/aligrudi/neatroff.git", revision: "0d691c38d6f30f1acaf8c2d2c710ad0648208c4b"
-			version "2022-05-27"
+			url "https://github.com/aligrudi/neatroff.git", revision: "fd0bf8b3a9e7b8fd046f88e93ada58fad7334b2e"
+			version "2022-07-26"
 		end
 		
 		resource "neatpost" do
@@ -133,8 +133,8 @@ class Neatroff < Formula
 		end
 
 		resource "neatmkfn" do
-			url "https://github.com/aligrudi/neatmkfn.git", revision: "799342c46e5f2928d77701e1b2f787ed729a1cce"
-			version "2022-05-27"
+			url "https://github.com/aligrudi/neatmkfn.git", revision: "e477744371b17cb5cebe277a94a1b3c599173ffe"
+			version "2022-07-26"
 		end
 
 		resource "neatrefer" do
