@@ -44,5 +44,7 @@ Available formulae
 	Modern reimplementation of Troff with Unicode and bidirectional text support.
 *	[`pikchr`](https://pikchr.org/home):
 	Web-friendly PIC interpreter optimised for SVG output.
+*	[`sqlrpt`](https://github.com/jklowden/sqlrpt):
+	Preprocessor for `tbl(1)` that generates tables from [SQLite](https://www.sqlite.org/lang.html) queries.
 *	[`teqn`](https://github.com/mahdiElliot/teqn):
 	Convert TeX equations to [Neateqn](https://github.com/aligrudi/neateqn) preprocessor markup.
