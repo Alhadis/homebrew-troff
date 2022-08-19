@@ -32,6 +32,8 @@ Available formulae
 	The Amazingly Workable Formatter, a partial `nroff(1)` clone written in Awk.
 *	[`chem`](http://www.netlib.org/typesetting):
 	Historic version of `chem(1)`, a preprocessor for chemical diagrams.
+*	[`deroff`](http://www.moria.de/~michael/deroff/):
+	Enhanced version of the traditional `deroff(1)` utility used to remove Roff markup.
 *	[`dformat`](https://github.com/sathlan/dformat):
 	Awk-based preprocessor for data formats, taken from [CSTR #142](https://www.troff.org/papers.html).
 *	[`dpic`](https://gitlab.com/aplevich/dpic):
