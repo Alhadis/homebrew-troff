@@ -1,15 +1,16 @@
 class ManDb < Formula
 	desc "Modern, featureful implementation of the Unix man page system"
 	homepage "https://nongnu.org/man-db/"
-	url "https://download.savannah.nongnu.org/releases/man-db/man-db-2.10.2.tar.xz"
-	mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.10.2.tar.xz"
+	version "2.10.2"
+	url "https://download.savannah.nongnu.org/releases/man-db/man-db-#{version}.tar.xz"
+	mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-#{version}.tar.xz"
 	sha256 "ee97954d492a13731903c9d0727b9b01e5089edbd695f0cdb58d405a5af5514d"
 	license "GPL-2.0-or-later"
 
 	depends_on "libpipeline"
-	depends_on "gettext"
 	depends_on "zstd" => :optional
 	depends_on "groff"
+	depends_on "gdbm" if OS.linux?
 	uses_from_macos "zlib"
 
 	head do
@@ -25,28 +26,44 @@ class ManDb < Formula
 	end
 
 	def install
+		conf = etc/"man_db.conf"
 		args = %W[
-			--prefix=#{prefix}
-			--with-systemdtmpfilesdir=no
-			--with-systemdsystemunitdir=no
-			--disable-dependency-tracking
+			--localstatedir=#{var}
+			--with-config-file=#{conf}
 			--disable-silent-rules
 			--disable-cache-owner
 			--disable-setuid
-			--disable-shared
-			--enable-static
+			--disable-nls
 		]
+		if OS.linux?
+			args << "--with-systemdsystemunitdir=#{etc}/systemd/system"
+			args << "--with-systemdtmpfilesdir=#{etc}/tmpfiles.d"
+		end
 		ENV.append_to_cflags "-std=c99"
 		system "./bootstrap" if build.head?
-		system "./configure", *args
+		system "./configure", *args, *std_configure_args
 		system "make"
 		system "make", "install"
+		inreplace conf, "/var", var
 	end
 
 	test do
 		ENV["PAGER"] = "cat"
-		output = shell_output("#{bin}/man true")
-		assert_match "BSD General Commands Manual", output
-		assert_match /\A(?:TRUE|true)\(1\)[ \t]/, output
+		(input = testpath/"brew-test.1").write <<~EOF
+			.TH BREW-TEST 1
+			.SH NAME
+			.ad l
+			.ds w3 test
+			.ds w1 Just
+			.ds w4 fixture
+			.ds w2 another
+			\\*(w1 \\*(w2 \\*[w3] \\*[w4].
+			.SH RETURN VALUE
+			.nr $? (5/3)-1
+			Hopefully \\n($?.
+		EOF
+		output = shell_output("#{bin}/man #{input}")
+		assert_match /^[ \t]+Just another test fixture\.$/, output
+		assert_match /^[ \t]+Hopefully 0\.$/, output
 	end
 end
