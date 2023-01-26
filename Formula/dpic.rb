@@ -2,10 +2,10 @@ class Dpic < Formula
 	desc "Modern PIC implementation with support for LaTeX, PDF, SVG, PostScript, and Xfig 3.2"
 	homepage "https://gitlab.com/aplevich/dpic"
 	head "#{homepage}.git"
-	url "https://gitlab.com/aplevich/dpic/-/archive/a31a7a286c2e58c0ae72d136969a928a7bda17af/dpic.bz2"
-	sha256 "7401b4695343e270df2f47ba924de0c3722594f060d8bd8825dbc3c750093dfd"
+	url "https://gitlab.com/aplevich/dpic/-/archive/1e982f568a493a8d0e934d718d45048ed78fb265/dpic.bz2"
+	sha256 "7d2f49078a4b542aa56586a21e5816ed14efaa54e32c82f2caf16566b780e276"
 	license all_of: %W[BSD-2-Clause CC-BY-3.0 LPPL-1.3c]
-	version "2022-12-01"
+	version "2023-02-01"
 	
 	livecheck do
 		url "https://gitlab.com/aplevich/dpic/-/raw/HEAD/VERSIONDATE.h"
