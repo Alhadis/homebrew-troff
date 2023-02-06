@@ -114,8 +114,8 @@ class Neatroff < Formula
 	end
 	
 	stable do
-		url "https://github.com/aligrudi/neatroff_make.git", revision: "08b5441ce31e4d7667b18af8cf7a47a61454d985"
-		version "2022-12-01"
+		url "https://github.com/aligrudi/neatroff_make.git", revision: "7cf23e411527a8e85c6fda689523f90b5f03a235"
+		version "2023-02-04"
 		
 		resource "neatroff" do
 			url "https://github.com/aligrudi/neatroff.git", revision: "f8e3db6d29a44708872dd51a57b74033fdac41b6"
