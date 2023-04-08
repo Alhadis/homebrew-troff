@@ -30,7 +30,7 @@ Available formulae
 ------------------
 *	[`awf`](http://doc.cat-v.org/henry_spencer/awf/):
 	The Amazingly Workable Formatter, a partial `nroff(1)` clone written in Awk.
-*	[`chem`](http://www.netlib.org/typesetting):
+*	[`chem`](https://netlib.org/typesetting/):
 	Historic version of `chem(1)`, a preprocessor for chemical diagrams.
 *	[`deroff`](http://www.moria.de/~michael/deroff/):
 	Enhanced version of the traditional `deroff(1)` utility used to remove Roff markup.
@@ -40,7 +40,7 @@ Available formulae
 	Reimplementation of `gpic(1)` targeting LaTeX and web-based formats.
 *	[`heirloom-doctools`](http://n-t-roff.github.io/heirloom/doctools.html):
 	Modernised `troff` geared toward high-quality typesetting.
-*	[`man-db`](https://nongnu.org/man-db/):
+*	[`man-db`](https://man-db.gitlab.io/man-db/):
 	The implementation of `man(1)` widely used on Linux.
 *	[`neatroff`](http://litcave.rudi.ir/):
 	Modern reimplementation of Troff with Unicode and bidirectional text support.

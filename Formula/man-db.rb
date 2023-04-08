@@ -1,6 +1,6 @@
 class ManDb < Formula
 	desc "Modern, featureful implementation of the Unix man page system"
-	homepage "https://nongnu.org/man-db/"
+	homepage "https://man-db.gitlab.io/man-db/"
 	version "2.11.2"
 	url "https://download.savannah.nongnu.org/releases/man-db/man-db-#{version}.tar.xz"
 	mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-#{version}.tar.xz"
@@ -14,7 +14,7 @@ class ManDb < Formula
 	uses_from_macos "zlib"
 
 	head do
-		url "https://gitlab.com/cjwatson/man-db.git", branch: "main"
+		url "https://gitlab.com/man-db/man-db.git", branch: "main"
 		depends_on "autoconf" => :build
 		depends_on "automake" => :build
 		depends_on "libtool"  => :build

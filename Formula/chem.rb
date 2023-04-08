@@ -2,8 +2,8 @@ require_relative "../lib/shell-archive"
 
 class Chem < Formula
 	desc "The original AT&T version of the chem(1) preprocessor"
-	homepage "http://www.netlib.org/typesetting"
-	url "http://www.netlib.org/typesetting/chem", :using => ShellArchive::Downloader
+	homepage "https://netlib.org/typesetting/"
+	url "https://netlib.org/typesetting/chem", :using => ShellArchive::Downloader
 	mirror "https://web.archive.org/web/20210702173030if_/http://netlib.org/typesetting/chem"
 	sha256 "32d3c15b89eb84c7d0bd07c5ac1150a64ec6a7252259f569a284cebba7a68749"
 	license "Caldera"
