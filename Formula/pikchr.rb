@@ -6,9 +6,9 @@ class Pikchr < Formula
 	depends_on "tcl-tk" => :optional
 	
 	stable do
-		url "https://pikchr.org/home/tarball/dc29638e0f5bd9f6/pikchr.tgz"
-		sha256 "a8b3cc2c7d63b79937354febebf69e3ee067823df467b55036ed990d7cf6e47d"
-		version "2023-04-14"
+		url "https://pikchr.org/home/tarball/6d40a5f041311bbe/pikchr.tgz"
+		sha256 "ccf47a3d57a7e2ae8ce3d903385fab971b14d7498bdba7e5bc47a13c721738fb"
+		version "2023-05-26"
 	end
 	
 	# FIXME: Building --HEAD from a Fossil checkout is currently broken; use GitHub mirror
