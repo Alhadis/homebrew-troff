@@ -40,11 +40,37 @@ class ManDb < Formula
 			args << "--with-systemdtmpfilesdir=#{etc}/tmpfiles.d"
 		end
 		ENV.append_to_cflags "-std=c99"
+		should_update_config = !conf.exist?
 		system "./bootstrap" if build.head?
 		system "./configure", *args, *std_configure_args
 		system "make"
 		system "make", "install"
-		inreplace conf, "/var", var
+		inreplace conf, %r{
+			(?<=\s|^)
+			/var
+			(?=$|\s|/)
+		}x, var if should_update_config
+	end
+
+	# Repair botched remappings from earlier installs
+	def post_install
+		return unless (conf = etc/"man_db.conf").exist?
+		return if File.exist?(var.parent.to_s + var)
+		search = %r{
+			(?<=\s|^)
+			(?:#{Regexp.quote var.parent}){2,}
+			/#{Regexp.quote var.basename}
+			(/\S*)?
+			(?=$|\s|/)
+		}x
+		if (src = conf.binread).match? search
+			oh1 "Repairing prefix duplication in #{conf}"
+			conf.binwrite (src.gsub!(search) do |match|
+				result = var.to_s + $1
+				ohai "#{match} -> #{result}"
+				result
+			end)
+		end
 	end
 
 	test do
