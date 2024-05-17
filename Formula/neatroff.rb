@@ -247,7 +247,7 @@ class Neatroff < Formula
 			next unless [GitDownloadStrategy, GitHubGitDownloadStrategy].include? strategy
 			resources.delete name unless resources[name].is_a? HeadSoftwareSpec
 			resource name do
-				url rsrc.url, rsrc.specs.reject {|key| key == :revision}
+				url rsrc.url, **rsrc.specs.reject {|key| key == :revision}
 			end
 		end
 	end
