@@ -1,10 +1,10 @@
 class ManDb < Formula
 	desc "Modern, featureful implementation of the Unix man page system"
 	homepage "https://man-db.gitlab.io/man-db/"
-	version "2.12.1"
+	version "2.13.0"
 	url "https://download.savannah.gnu.org/releases/man-db/man-db-#{version}.tar.xz"
 	mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-#{version}.tar.xz"
-	sha256 "ddee249daeb78cf92bab794ccd069cc8b575992265ea20e239e887156e880265"
+	sha256 "82f0739f4f61aab5eb937d234de3b014e777b5538a28cbd31433c45ae09aefb9"
 	license "GPL-2.0-or-later"
 
 	depends_on "libpipeline"
