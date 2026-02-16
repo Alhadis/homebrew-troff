@@ -57,11 +57,11 @@ class HeirloomDoctools < Formula
 			If you want the unprefixed versions, add the following to your shell's
 			startup file:
 			
-				export PATH="#{Formatter.url opt_prefix/"libexec/bin"}:$PATH"
-				export MANPATH="#{Formatter.url opt_prefix/"libexec/man"}:$MANPATH"
+				export PATH="#{Formatter.url "#{opt_prefix}/libexec/bin"}:$PATH"
+				export MANPATH="#{Formatter.url "#{opt_prefix}/libexec/man"}:$MANPATH"
 			
 			Additional documentation and examples can be found in
-			#{Formatter.url pkgshare}.
+			#{Formatter.url pkgshare.to_s}.
 		EOF
 	end
 end

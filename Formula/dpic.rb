@@ -29,7 +29,7 @@ class Dpic < Formula
 	def caveats
 		<<~EOF
 			Additional documentation has been installed to:
-			  #{Formatter.url doc}
+			  #{Formatter.url doc.to_s}
 		EOF
 	end
 	

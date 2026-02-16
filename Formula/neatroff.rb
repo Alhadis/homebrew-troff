@@ -153,7 +153,7 @@ class Neatroff < Formula
 			Commands have been installed with a "neat" prefix.
 			
 			Additional documentation and examples can be found in
-			#{Formatter.url doc}.
+			#{Formatter.url doc.to_s}.
 		EOF
 	end
 	

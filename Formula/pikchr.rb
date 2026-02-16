@@ -71,7 +71,7 @@ class Pikchr < Formula
 		return unless build.with? "tcl-tk"
 		<<~EOF
 			Tcl/Tk bindings have been installed to:
-			  #{Formatter.url opt_lib/"piktcl"}
+			  #{Formatter.url "#{opt_lib}/piktcl"}
 		EOF
 	end
 	
